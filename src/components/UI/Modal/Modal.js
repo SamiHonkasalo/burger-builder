@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import styles from "./Modal.module.css";
-import Aux from "../../../hoc/Auxiliary";
+import Aux from "../../../hoc/Auxiliary/Auxiliary";
 import Backdrop from "../Backdrop/Backdrop";
 
 class Modal extends Component {
+  // Only update/(render) the Modal if the show status is changed
   shouldComponentUpdate(nextProps, nextState) {
     return nextProps.show !== this.props.show;
   }
