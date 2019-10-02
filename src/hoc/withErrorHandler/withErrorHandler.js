@@ -7,7 +7,9 @@ const withErrorHandler = (WrappedComponent, axios) => {
     state = {
       error: null
     };
-    componentWillMount() {
+
+    constructor(props) {
+      super(props);
       this.reqInterceptor = axios.interceptors.request.use(req => {
         this.setState({ error: null });
         return req;
@@ -19,6 +21,20 @@ const withErrorHandler = (WrappedComponent, axios) => {
         }
       );
     }
+
+    // ComponentWillMount no longer used, this is now changed to be at the constructor of the class
+    // componentWillMount() {
+    //   this.reqInterceptor = axios.interceptors.request.use(req => {
+    //     this.setState({ error: null });
+    //     return req;
+    //   });
+    //   this.resInterceptor = axios.interceptors.response.use(
+    //     res => res,
+    //     error => {
+    //       this.setState({ error: error });
+    //     }
+    //   );
+    // }
 
     componentWillUnmount() {
       axios.interceptors.request.eject(this.reqInterceptor);
