@@ -25,15 +25,15 @@ const withErrorHandler = (WrappedComponent, axios) => {
     // ComponentWillMount no longer used, this is now changed to be at the constructor of the class
     // componentWillMount() {
     //   this.reqInterceptor = axios.interceptors.request.use(req => {
-    //     this.setState({ error: null });
-    //     return req;
-    //   });
+    //     this.setState({ error: null })
+    //     return req
+    //   })
     //   this.resInterceptor = axios.interceptors.response.use(
     //     res => res,
     //     error => {
-    //       this.setState({ error: error });
+    //       this.setState({ error: error })
     //     }
-    //   );
+    //   )
     // }
 
     componentWillUnmount() {
@@ -54,7 +54,7 @@ const withErrorHandler = (WrappedComponent, axios) => {
           >
             {this.state.error ? this.state.error.message : null}
           </Modal>
-          <WrappedComponent {...this.props} />;
+          <WrappedComponent {...this.props} />
         </Aux>
       );
     }
