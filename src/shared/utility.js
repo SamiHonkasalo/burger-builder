@@ -1,7 +1,7 @@
-export const updateObject = (oldObject, updatedPropreties) => {
+export const updateObject = (oldObject, updatedProperties) => {
   return {
     ...oldObject,
-    ...updatedPropreties
+    ...updatedProperties
   };
 };
 
